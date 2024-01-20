@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>JS3Cycles</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    
+    <h3>Таsk 1</h3>
+    <p id="task1"></p>
+    <script >
+        let summa = 0
+        for (let index = 1; index <= 1000; index++){
+            summa += index;
+        }
+        document.getElementById("task1").innerText = "Сумма = " + summa;
+        console.log("Сумма = " + summa);
+    </script>
+    <h3>Task 2</h3>
+    <p id="task2"></p>
+    <script>
+        let num = getRandomNumber(30, 2),
+            fact = 1;
+        console.log("Число: " + num);
+        document.getElementById("task2").innerText = "Число = " + num + "\n";
+        for (let i = 1; i <= num; i++){
+            fact *= i;
+        }
+        console.log("Факториал = " + fact)
+        document.getElementById("task2").innerText += "Факториал = " + fact;
+    </script>
+    <h3>Task 3</h3>
+    <p id="task3"></p>
+    <script>
+        const PRICE = 60000, 
+            M = 1000;
+        let p = 0, 
+            _summa = 0,
+            years = 0;
+        while (_summa < PRICE){
+            _summa += (M + p);
+            p += 1200;
+            years++;
+        }
+        console.log("Сумма будет накоплена через: " + years + " лет");
+        document.getElementById("task3").innerText = "Сумма будет накоплена через: " + years + " лет";
+    </script>
+    <h3>Task 4</h3>
+    <p id="task4"></p>
+    <script>
+        let word1 = "огород",
+            word2 = "шалаш";
+        if (isPalindrome(word1)){
+            console.log("Слово " + word1 + " является палиндромом.");
+            document.getElementById("task4").innerText = "Слово " + word1 + " является палиндромом.\n";
+        } else {
+            console.log("Слово " + word1 + " не является палиндромом.");
+            document.getElementById("task4").innerText = "Слово " + word1 + " не является палиндромом.\n";
+        }
+        if (isPalindrome(word2)){
+            console.log("Слово " + word2 + " является палиндромом.");
+            document.getElementById("task4").innerText += "Слово " + word2 + " является палиндромом.";
+        } else {
+            console.log("Слово " + word2 + " не является палиндромом.");
+            document.getElementById("task4").innerText += "Слово " + word2 + " не является палиндромом.";
+        }
+    </script>
+   <h3>Task 5</h3>
+   <input id="num" type="hidden"><br>
+   <input id="answer" type="number" min="0" max="100" value="0"><button onclick="btnclick()">Кликни</button><br>
+   <p id="task5"></p>
+   <script>
+    let input, random = Math.floor(Math.random() * 10);
+
+    while (input = prompt("Введите число от 0 до 100:")) {
+        if (isNaN(input))
+            alert("Введите число!");
+        else if (input > random)
+            alert("Меньше!");
+        else if (input < random)
+            alert("Больше!");
+        else if (input == random) {
+            alert("Правильно!");
+            break;
+        }
+    }
+</script>
+   <script>
+       let n = getRandomNumber(100, 0);
+       document.getElementById("num").innerText = n;
+       let ans = -1;
+       let count = 0;
+       
+       function btnclick(){
+           ans = parseInt(document.getElementById("answer").value);
+           if ((ans >= (n - 5)) && (ans <= (n + 5))){
+               document.getElementById("task5").innerText += "Горячо!\n";
+               console.log("Горячо!");
+           } else if ((ans >= (n - 10)) && (ans <= (n + 10))){
+               document.getElementById("task5").innerText += "Тепло!\n";
+               console.log("Тепло!");
+           } else {
+               document.getElementById("task5").innerText += "Холодно!\n";
+               console.log("Холодно!");
+           }
+           count++;
+           if (n == ans) {
+               document.getElementById("task5").innerText += "\n Число " + n + " угадано за " + count + " ходов.";
+               console.log("\n Число угадано за " + count + " ходов.");
+           }
+       }
+   </script>
+  
+</body>
+</html>
